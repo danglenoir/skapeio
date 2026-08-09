@@ -1,12 +1,12 @@
 .NavItem {
-  display: flex;
   position: relative;
+  display: flex;
   align-items: center;
   justify-content: flex-end;
   width: calc(var(--unit) * 20);
   height: calc(var(--unit) * 6);
-  text-transform: uppercase;
   font-family: var(--font-mono);
+  text-transform: uppercase;
   letter-spacing: var(--tracking-widest);
 }
 
@@ -15,11 +15,11 @@
 
   position: absolute;
   right: 100%;
-  transition: opacity var(--default-transition-duration) var(--default-transition-timing-function);
-  opacity: var(--opacity);
   font-size: var(--text-xs);
   line-height: var(--text-xs--line-height);
   white-space: nowrap ;
+  opacity: var(--opacity);
+  transition: opacity var(--default-transition-duration) var(--default-transition-timing-function);
 }
 
 .NavItem:hover .NavItem__Label {
@@ -27,11 +27,11 @@
 }
 
 .NavItem__Indicator {
+  width: calc(var(--unit) * 6);
+  height: 0.1875rem;
   background: var(--color-white);
+  transform-origin: right center;
   transition: 
     transform calc(var(--default-transition-duration) / 2) var(--default-transition-timing-function), 
     opacity calc(var(--default-transition-duration) / 2) var(--default-transition-timing-function);
-  transform-origin: right center;
-  width: calc(var(--unit) * 6);
-  height: 0.1875rem;
 }

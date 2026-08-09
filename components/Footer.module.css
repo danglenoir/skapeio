@@ -1,13 +1,13 @@
 .Footer {
   --padding-inline: 6;
-  
-  background: var(--color-black);
   padding-inline: calc(var(--unit) * var(--padding-inline));
-  text-transform: uppercase;
-  line-height: 1;
   font-family: var(--font-mono);
   font-size: 0.625rem;
+  line-height: 1;
+  text-transform: uppercase;
   letter-spacing: var(--tracking-widest);
+
+  background: var(--color-black);
 }
 
 @media (width >= 48rem) {
@@ -25,9 +25,9 @@
 .Footer__Inner {
   display: flex;
   flex-direction: column;
+  gap: calc(var(--unit) * 4);
   align-items: center;
   justify-content: space-between;
-  gap: calc(var(--unit) * 4);
   width: 100%;
 }
 
@@ -40,8 +40,8 @@
 .Footer__Items {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: calc(var(--unit) * 4);
+  align-items: center;
 }
 
 @media (width >= 48rem) {
@@ -67,8 +67,9 @@
 }
 
 .Footer__Button {
-  transition: opacity var(--default-transition-duration) var(--default-transition-timing-function);
   text-transform: inherit;
+  cursor: pointer;
+  transition: opacity var(--default-transition-duration) var(--default-transition-timing-function);
 }
 
 .Footer__Button:hover {

@@ -12,22 +12,19 @@ import References from '@/components/References';
 import Services from '@/components/Services';
 import TopBar from '@/components/TopLink';
 
-
-const classNames = {
-  content: `divide-y divide-white/10`
-}
+import styles from '@/app/page.module.css';
 
 const Home = (): ReactNode => (
   <main>
     <TopBar />
     <Nav />
-    <div className={classNames.content}>
+    <div className={styles.Content}>
       <Hero />
       <About />
       <References />
       <JordBanner />
       <Services />
-      <Contact />  
+      <Contact />
       <Footer />
       <PrivacyPolicyDialog />
       <ImprintDialog />

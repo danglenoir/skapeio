@@ -3,8 +3,8 @@
   --border-color: hsl(from var(--color-white) h s l / 10%);
 
   display: grid;
-  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   border-top: var(--border-width) solid var(--border-color);
   border-left: var(--border-width) solid var(--border-color);
 }

@@ -5,16 +5,16 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: calc(var(--unit) * var(--gap));
-  padding-right: calc(var(--unit) * var(--padding-right));
-  width: 100%;
   place-content: center;
+  width: 100%;
+  padding-right: calc(var(--unit) * var(--padding-right));
 }
 
 @media (width >= 48rem) {
   .PartnerLogoSet {
     display: flex;
     flex: 0 0 auto;
-    width: auto;
     align-items: center;
+    width: auto;
   }
 }

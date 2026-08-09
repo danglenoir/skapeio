@@ -2,15 +2,15 @@
 .ContainerFooter {
   display: flex;
   flex-direction: column;
+  gap: calc(var(--unit) * var(--gap));
   align-items: flex-start;
   justify-content: center;
-  gap: calc(var(--unit) * var(--gap));
-  margin-inline: auto; 
-  padding-inline: calc(var(--unit) * 4);
-  padding-block: calc(var(--unit) * 32);
-  width: 100%; 
+  width: 100%;
   max-width: var(--container-7xl);
-  height: 100%; 
+  height: 100%;
+  padding-block: calc(var(--unit) * 32);
+  padding-inline: calc(var(--unit) * 4);
+  margin-inline: auto;
 }
 
 .ContainerFooter {

@@ -1,0 +1,3 @@
+.Content > :not(:last-child) {
+  border-bottom: 0.0625rem solid hsl(from var(--color-white) h s l / 10%);
+}

@@ -1,7 +1,7 @@
 .References__Content {
   display: grid;
-  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
 }
 
 .References__Wrapper,
@@ -10,8 +10,8 @@
 }
 
 .References__Wrapper {
-  padding-block: calc(var(--unit) * 16);
   width: 100%;
+  padding-block: calc(var(--unit) * 16);
   overflow: hidden;
 }
 
@@ -28,9 +28,9 @@
 }
 
 .References__Gradients {
+  z-index: 1;
   display: none;
   grid-template-columns: calc(var(--unit) * 32) 1fr calc(var(--unit) * 32);
-  z-index: 1;
   pointer-events: none;
 }
 

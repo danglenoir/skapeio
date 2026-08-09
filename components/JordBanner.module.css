@@ -8,9 +8,9 @@
   right: var(--right);
   bottom: -20%;
   z-index: 0;
-  opacity: 0.4;
   width: var(--width);
   pointer-events: none;
+  opacity: 0.4;
 }
 
 @media (width >= 48rem) {
@@ -29,10 +29,10 @@
 .JordBanner__Title {
   --line-height: var(--text-4xl--line-height);
   --font-size: var(--text-4xl);
-
-  line-height: var(--line-height);
   font-size: var(--font-size);
   font-weight: 800;
+
+  line-height: var(--line-height);
   letter-spacing: var(--tracking-tighter);
   text-box: trim-both cap alphabetic;
 }
@@ -54,11 +54,11 @@
 .JordBanner__Text {
   --line-height: var(--text-sm--line-height);
   --font-size: var(--text-sm);
-  
-  opacity: 0.75;
   max-width: var(--container-2xl);
-  line-height: var(--line-height);
   font-size: var(--font-size);
+  line-height: var(--line-height);
+
+  opacity: 0.75;
 }
 
 @media (width >= 48rem) {

@@ -1,22 +1,22 @@
 .Contact__Headline {
-  opacity: 0.5;
-  line-height: var(--text-xs--line-height);
-  text-transform: uppercase;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
+  line-height: var(--text-xs--line-height);
+  text-transform: uppercase;
   letter-spacing: var(--tracking-widest);
+  opacity: 0.5;
 }
 
 .Contact__Link {
   display: flex;
   flex-direction: column;
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
-  transition-timing-function: var(--default-transition-timing-function);
-  transition-duration: var(--default-transition-duration);
-  line-height: var(--text-4xl--line-height);
   font-size: var(--text-4xl);
   font-weight: 800;
+  line-height: var(--text-4xl--line-height);
   letter-spacing: var(--tracking-tighter);
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
   text-box: trim-both cap alphabetic;
 }
 
@@ -36,13 +36,13 @@
 
 .Contact__Link__Line {
   --scaleX: 0;
+  width: 100%;
+  height: calc(var(--unit) * 1);
+  background: currentColor;
 
   transform: scaleX(var(--scaleX));
   transform-origin: left center;
   transition: transform calc(2 * var(--default-transition-duration)) var(--default-transition-timing-function);
-  background: currentColor;
-  width: 100%;
-  height: calc(var(--unit) * 1);
 }
 
 .Contact__Link:hover .Contact__Link__Line {

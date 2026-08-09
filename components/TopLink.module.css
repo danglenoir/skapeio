@@ -2,7 +2,7 @@
   position: fixed;
   top: calc(var(--unit) * 6);
   left: 50%;
-  z-index: 50;
-  mix-blend-mode: difference;
+  z-index: 3;
   color: var(--color-white);
+  mix-blend-mode: difference;
 }

@@ -1,8 +1,8 @@
 .Background {
   display: grid;
   grid-area: 1 / 1 / 1 / 1;
-  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
 }
 
 .Color {
@@ -12,4 +12,6 @@
 
 .Pattern {
   grid-area: 1 / 1 / 1 / 1;
+  background-image: linear-gradient(transparent 50%, hsl(from var(--color-black) h s l / 25%) 50%);
+  background-size: 100% 0.25rem;
 }

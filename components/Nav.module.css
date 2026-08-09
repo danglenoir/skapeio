@@ -1,9 +1,9 @@
 .Nav {
-  display: flex;
   position: fixed;
   top: 50%;
   right: calc(var(--unit) * 6);
-  z-index: 50;
+  z-index: 2;
+  display: flex;
   flex-direction: column;
   align-items: end;
   transform: translateY(-50%);

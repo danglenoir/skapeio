@@ -1,18 +1,55 @@
 .Dialog {
   place-self: center;
-  border: 0.0625rem solid hsl(from var(--color-white) h s l / 10%);
-  background: var(--color-black);
-  box-shadow: 0 0 calc(var(--unit) * 4) calc(var(--unit) * 4) hsl(0 0 0 / 40%);
   width: calc(100% - calc(var(--unit) * 4));
-  max-width: var(--container-md);
+  max-width: var(--container-4xl);
   max-height: calc(100dvh - calc(var(--unit) * 4));
   overflow: hidden;
-  color: var(--colow-white);
+  color: var(--color-white);
+  background: var(--color-black);
+  border: 0.0625rem solid hsl(from var(--color-white) h s l / 10%);
+  box-shadow: 0 0 calc(var(--unit) * 4) calc(var(--unit) * 4) hsl(0 0 0 / 40%);
+  opacity: 0;
+  transform: translateY(50%);
+  transition:
+    opacity 400ms var(--default-transition-timing-function),
+    transform 400ms var(--default-transition-timing-function),
+    overlay 400ms allow-discrete,
+    display 400ms allow-discrete;
+}
+
+.Dialog:open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@starting-style {
+  .Dialog:open {
+    opacity: 0;
+    transform: translateY(50%);
+  }
 }
 
 .Dialog::backdrop {
   background: hsl(from var(--color-black) h s l / 40%);
+  opacity: 0;
+  backdrop-filter: blur(0);
+  transition:
+    opacity 400ms var(--default-transition-timing-function),
+    backdrop-filter 400ms var(--default-transition-timing-function),
+    overlay 400ms allow-discrete,
+    display 400ms allow-discrete;
+}
+
+.Dialog:open::backdrop {
+  opacity: 1;
   backdrop-filter: blur(1rem);
+}
+
+@starting-style {
+  .Dialog:open::backdrop {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
 }
 
 .Dialog__Section {
@@ -21,31 +58,34 @@
   gap: calc(var(--unit) * 6);
   max-height: calc(100dvh - calc(var(--unit) * 4));
   padding: calc(var(--unit) * 6);
+  overflow: hidden;
 }
 
 .Dialog__Header {
   display: flex;
   flex: 0 0 auto;
-  align-items: center;
   gap: calc(var(--unit) * 6);
+  align-items: center;
 }
 
 .Dialog__Title {
   flex: 1;
-  text-transform: uppercase;
-  line-height: var(--text-lg--line-height);
   font-family: var(--font-mono);
   font-size: var(--text-2xl);
+  line-height: var(--text-lg--line-height);
+  text-transform: uppercase;
   letter-spacing: var(--tracking-widest);
   text-box: trim-both cap alphabetic;
 }
 
 .Dialog__Content {
   display: flex;
-  flex-direction: column;
   flex: 1;
+  flex-direction: column;
   gap: calc(var(--unit) * 4);
   min-height: 0;
-  overflow-y: auto;
   padding-right: calc(var(--unit) * 2);
+  overflow-y: auto;
+  scrollbar-color: hsl(from var(--color-black) h s 30%) hsl(from var(--color-black) h s 10%);
+  scrollbar-width: thin;
 }

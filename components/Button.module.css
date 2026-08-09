@@ -2,8 +2,8 @@
   --border-color: hsl(from var(--color-white) h s l / 50%);
 
   display: grid;
-  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
 }
 
 .Button:hover {
@@ -11,16 +11,16 @@
 }
 
 .Button__Label {
-  grid-area: 1 / 1 / 1 / 1;
   z-index: 1;
-  transition: color var(--default-transition-duration) var(--default-transition-timing-function);
-  text-transform: uppercase;
-  padding-inline: calc(var(--unit) * 8);
+  grid-area: 1 / 1 / 1 / 1;
   padding-block: calc(var(--unit) * 3);
-  line-height: var(--text-sm--line-height);
+  padding-inline: calc(var(--unit) * 8);
   font-family: var(--font-mono);
   font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  text-transform: uppercase;
   letter-spacing: var(--tracking-widest);
+  transition: color var(--default-transition-duration) var(--default-transition-timing-function);
 }
 
 .Button:hover .Button__Label {
@@ -30,12 +30,12 @@
 .Button__Background {
   display: grid;
   grid-area: 1 / 1 / 1 / 1;
-  grid-template-columns: calc(var(--unit) * 2) 1fr calc(var(--unit) * 2);
   grid-template-rows: calc(var(--unit) * 2) 1fr calc(var(--unit) * 2);
-  transition: background-color var(--default-transition-duration) var(--default-transition-timing-function);
-  border: 0.0625rem solid hsl(from var(--color-white) h s l / 10%);
-  background: hsl(from var(--color-black) h s l / 50%);
+  grid-template-columns: calc(var(--unit) * 2) 1fr calc(var(--unit) * 2);
   padding: 0.125rem;
+  background: hsl(from var(--color-black) h s l / 50%);
+  border: 0.0625rem solid hsl(from var(--color-white) h s l / 10%);
+  transition: background-color var(--default-transition-duration) var(--default-transition-timing-function);
 }
 
 .Button:hover .Button__Background {
@@ -46,10 +46,10 @@
 .Button__TopRight,
 .Button__BottomLeft,
 .Button__BottomRight {
-  transition: border-color var(--default-transition-duration) var(--default-transition-timing-function);
-  border: 0.0625rem solid var(--border-color);
   width: calc(var(--unit) * 2);
   height: calc(var(--unit) * 2);
+  border: 0.0625rem solid var(--border-color);
+  transition: border-color var(--default-transition-duration) var(--default-transition-timing-function);
 }
 
 .Button__TopLeft {

@@ -1,7 +1,7 @@
 .ServiceCard {
   display: grid;
-  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   border-right: var(--border-width) solid var(--border-color);
   border-bottom: var(--border-width) solid var(--border-color);
 }
@@ -19,12 +19,12 @@
 
 .ServiceCard__Content {
   --padding: 6;
+  z-index: 1;
 
   display: flex;
-  z-index: 1;
   flex-direction: column;
-  gap: calc(var(--unit) * 4);
   grid-area: 1 / 1 / 1 / 1;
+  gap: calc(var(--unit) * 4);
   padding: calc(var(--unit) * var(--padding));
 }
 
@@ -36,35 +36,35 @@
 
 .ServiceCard__Heading {
   display: flex;
-  align-items: flex-start;
   gap: calc(var(--unit) * 2);
+  align-items: flex-start;
   font-family: var(--font-mono);
   letter-spacing: var(--tracking-widest);
 }
 
 .ServiceCard__Title {
   flex: 1;
-  text-transform: uppercase;
-  line-height: var(--text-lg--line-height);
   font-size: var(--text-lg);
+  line-height: var(--text-lg--line-height);
+  text-transform: uppercase;
   text-box: trim-both cap alphabetic;
 }
 
 .ServiceCard__Index {
-  opacity: 0.5;
   width: 1rem;
   font-size: var(--text-xs);
   line-height: var(--text-xs--line-height);
+  opacity: 0.5;
   text-box: trim-both cap alphabetic;
 }
 
 .ServiceCard__Description {
   --line-height: var(--text-sm--line-height);
   --font-size: var(--text-sm);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
 
   opacity: 0.75;
-  line-height: var(--line-height);
-  font-size: var(--font-size);
 }
 
 @media (width >= 48rem) {
