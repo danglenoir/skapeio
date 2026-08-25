@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import i18n from '@/app/i18n';
+import { services } from '@/app/i18n';
 import Container from '@/components/Container';
 import Corners from '@/components/Corners';
 import Heading from '@/components/Heading';
@@ -9,7 +9,7 @@ import ServiceCard from '@/components/ServiceCard';
 
 import styles from '@/components/Services.module.css';
 
-const { title, items } = i18n.en.services;
+const { title, items } = services;
 
 const Services = (): ReactNode => (
   <Section id="capabilities">
@@ -20,9 +20,9 @@ const Services = (): ReactNode => (
       />
       <div className={styles.GridWrapper}>
         <div className={styles.Grid}>
-          {items.map(({ title, description }, index) => (
+          {items.map(({ id, title, description }, index) => (
             <ServiceCard
-              key={index}
+              key={id}
               index={String(index + 1).padStart(2, '0')}
               title={title}
               description={description}

@@ -6,12 +6,14 @@ import unusedImports from 'eslint-plugin-unused-imports';
 
 export default defineConfig([{
     extends: [...next],
+    ignores: ['output/**'],
     plugins: {
         '@stylistic': stylistic,
         'simple-import-sort': simpleImportSort,
         'unused-imports': unusedImports,
     },
     rules: {
+        '@stylistic/object-curly-spacing': ['error', 'always'],
         '@stylistic/quotes': ['error', 'single', {
             allowTemplateLiterals: 'always',
             avoidEscape: true,

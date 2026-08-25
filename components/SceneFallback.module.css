@@ -1,0 +1,45 @@
+.SceneFallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+
+.SceneFallback__Hidden {
+  opacity: 0;
+}
+
+.SceneFallback__Shape {
+  width: min(76%, 42rem);
+  overflow: visible;
+  fill: hsl(from var(--color-black) h s l / 72%);
+  stroke: hsl(from var(--color-white) h s l / 10%);
+  stroke-width: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+
+.SceneFallback__Sculpture .SceneFallback__Shape {
+  width: min(66vw, 42rem);
+  transform: translateX(-8%) rotate(-8deg);
+}
+
+.SceneFallback__Planet .SceneFallback__Shape {
+  width: min(88%, 40rem);
+  transform: rotate(-23.4deg);
+}
+
+@media (width < 48rem) {
+  .SceneFallback__Sculpture .SceneFallback__Shape {
+    width: min(100vw, 32rem);
+    transform: translateY(8%) rotate(-8deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .SceneFallback {
+    transition: none;
+  }
+}

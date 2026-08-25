@@ -3,6 +3,13 @@
   top: calc(var(--unit) * 6);
   left: 50%;
   z-index: 3;
+  display: block;
   color: var(--color-white);
   mix-blend-mode: difference;
+  transform: translateX(-50%);
+}
+
+.TopLink:focus-visible {
+  outline: 0.125rem solid currentcolor;
+  outline-offset: calc(var(--unit) * 2);
 }

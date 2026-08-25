@@ -1,12 +1,17 @@
 'use client';
 
-import { ReactNode, useMemo, useRef } from 'react';
+import { ReactNode, useEffect, useMemo, useRef } from 'react';
 import { useFrame, useLoader, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
 const EARTH_RADIUS = 11.65;
 const AXIAL_TILT = THREE.MathUtils.degToRad(-23.4);
-const LAND_MASK_URL = '/textures/earth/roughness-2048.jpg';
+const LAND_MASK_URL = '/textures/earth/roughness-2048.7cc8aefdf3.jpg';
+
+type MeshEarthProps = {
+  animate?: boolean;
+  onReady?: () => void;
+};
 
 const MASK_VERTEX_SHADER = /* glsl */ `
   uniform sampler2D landMap;
@@ -45,28 +50,6 @@ const LAND_FILL_FRAGMENT_SHADER = /* glsl */ `
     float alpha = land * mix(0.035, 0.11, facing);
 
     gl_FragColor = vec4(vec3(0.76, 0.82, 0.86), alpha);
-    #include <tonemapping_fragment>
-    #include <colorspace_fragment>
-  }
-`;
-
-const LAND_WIREFRAME_FRAGMENT_SHADER = /* glsl */ `
-  uniform sampler2D landMap;
-
-  varying vec2 vUv;
-  varying vec3 vWorldNormal;
-  varying vec3 vWorldPosition;
-
-  void main() {
-    float land = smoothstep(0.34, 0.62, texture2D(landMap, vUv).r);
-    if (land < 0.08) discard;
-
-    vec3 viewDirection = normalize(cameraPosition - vWorldPosition);
-    float facing = abs(dot(normalize(vWorldNormal), viewDirection));
-    float rim = pow(1.0 - facing, 2.0);
-    float alpha = land * (0.34 + facing * 0.38 + rim * 0.14);
-
-    
     #include <tonemapping_fragment>
     #include <colorspace_fragment>
   }
@@ -120,7 +103,10 @@ const ATMOSPHERE_FRAGMENT_SHADER = /* glsl */ `
   }
 `;
 
-const MeshEarth = (): ReactNode => {
+const MeshEarth = ({
+  animate = true,
+  onReady,
+}: MeshEarthProps): ReactNode => {
   const spinRef = useRef<THREE.Group>(null);
   const gl = useThree((state) => state.gl);
   const loadedLandMap = useLoader(THREE.TextureLoader, LAND_MASK_URL);
@@ -140,7 +126,14 @@ const MeshEarth = (): ReactNode => {
     landMap: { value: landMap },
   }), [landMap]);
 
+  useEffect(() => {
+    onReady?.();
+  }, [onReady]);
+
+  useEffect(() => () => landMap.dispose(), [landMap]);
+
   useFrame((_, delta) => {
+    if (!animate) return;
     if (spinRef.current) spinRef.current.rotation.y += delta * 0.032;
   });
 
@@ -176,18 +169,6 @@ const MeshEarth = (): ReactNode => {
             transparent
             depthWrite={false}
             side={THREE.FrontSide}
-          />
-        </mesh>
-
-        <mesh renderOrder={3}>
-          <sphereGeometry args={[EARTH_RADIUS + 0.04, 144, 92]} />
-          <shaderMaterial
-            uniforms={maskUniforms}
-            vertexShader={MASK_VERTEX_SHADER}
-            fragmentShader={LAND_WIREFRAME_FRAGMENT_SHADER}
-            wireframe
-            transparent
-            depthWrite={false}
           />
         </mesh>
 

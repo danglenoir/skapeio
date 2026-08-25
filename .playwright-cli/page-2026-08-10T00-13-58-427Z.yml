@@ -1,0 +1,110 @@
+- generic [active] [ref=f2e1]:
+  - link "Back to top" [ref=f2e2] [cursor=pointer]:
+    - /url: "#home"
+  - navigation "Section navigation" [ref=f2e5]:
+    - link "Home" [ref=f2e6] [cursor=pointer]:
+      - /url: "#home"
+    - link "About" [ref=f2e8] [cursor=pointer]:
+      - /url: "#about"
+    - link "References" [ref=f2e10] [cursor=pointer]:
+      - /url: "#references"
+    - link "JORD" [ref=f2e12] [cursor=pointer]:
+      - /url: "#jord"
+    - link "Capabilities" [ref=f2e14] [cursor=pointer]:
+      - /url: "#capabilities"
+    - link "Contact" [ref=f2e16] [cursor=pointer]:
+      - /url: "#contact"
+  - main [ref=f2e18]:
+    - heading "Hello, we are skape.io. We deliver web development, cloud infrastructure, DevOps, networking, privacy, and IT project management." [level=1] [ref=f2e22]:
+      - generic [ref=f2e24]:
+        - text: hello, we are skape.io and we do
+        - generic [ref=f2e25]: web development.
+    - generic [ref=f2e37]:
+      - generic [ref=f2e38]:
+        - generic [ref=f2e39]: "01"
+        - heading "About us" [level=2] [ref=f2e40]
+      - generic [ref=f2e41]:
+        - paragraph [ref=f2e42]: We operate in the shadows of the digital realm, providing uncompromising infrastructure and architectural solutions. skape.io is not just a technology provider; we are the silent partners in your most critical operations, ensuring that your digital footprint is secure, scalable, and resilient against any threat. Our methodologies are forged in the fires of high-stakes environments where failure is not an option.
+        - paragraph [ref=f2e43]: By leveraging cutting-edge cloud native principles, Zero Trust architectures, and advanced deployment strategies, we craft environments that are as impenetrable as they are efficient. Every line of code, every network configuration, and every infrastructure deployment is executed with military precision. We don't just build systems; we engineer strategic advantages.
+    - region [ref=f2e44]:
+      - generic [ref=f2e45]:
+        - heading "References" [level=2] [ref=f2e46]
+        - generic [ref=f2e48]:
+          - list "Partner organizations" [ref=f2e49]:
+            - listitem [ref=f2e50]:
+              - img "Brain Bar" [ref=f2e51]
+            - listitem [ref=f2e52]:
+              - img "Déryné" [ref=f2e53]
+            - listitem [ref=f2e54]:
+              - img "Madách Színház" [ref=f2e55]
+            - listitem [ref=f2e56]:
+              - img "Magyar Nemzeti Bank" [ref=f2e57]
+            - listitem [ref=f2e58]:
+              - img "Spirit FM" [ref=f2e59]
+            - listitem [ref=f2e60]:
+              - img "Veszprém-Balaton 2023" [ref=f2e61]
+          - list [ref=f2e62]:
+            - listitem [ref=f2e63]
+            - listitem [ref=f2e65]
+            - listitem [ref=f2e67]
+            - listitem [ref=f2e69]
+            - listitem [ref=f2e71]
+            - listitem [ref=f2e73]
+          - list [ref=f2e75]:
+            - listitem [ref=f2e76]
+            - listitem [ref=f2e78]
+            - listitem [ref=f2e80]
+            - listitem [ref=f2e82]
+            - listitem [ref=f2e84]
+            - listitem [ref=f2e86]
+    - generic [ref=f2e98]:
+      - heading "JORD" [level=2] [ref=f2e99]
+      - paragraph [ref=f2e100]: The ultimate cloud-based CMS. Engineered for maximum security, zero-latency content delivery, and total operational control.
+      - button "Explore JORD. JORD website coming soon." [disabled] [ref=f2e101]:
+        - generic [ref=f2e102]: Explore JORD
+    - generic [ref=f2e110]:
+      - generic [ref=f2e111]:
+        - generic [ref=f2e112]: "02"
+        - heading "Capabilities" [level=2] [ref=f2e113]
+      - generic [ref=f2e115]:
+        - generic [ref=f2e120]:
+          - generic [ref=f2e121]:
+            - heading "Web Dev" [level=3] [ref=f2e122]
+            - generic [ref=f2e123]: "01"
+          - paragraph [ref=f2e124]: High-performance, secure digital interfaces engineered for scale and resilience.
+        - generic [ref=f2e129]:
+          - generic [ref=f2e130]:
+            - heading "DevOps" [level=3] [ref=f2e131]
+            - generic [ref=f2e132]: "02"
+          - paragraph [ref=f2e133]: Continuous integration, automated deployments, and unyielding infrastructure architecture.
+        - generic [ref=f2e138]:
+          - generic [ref=f2e139]:
+            - heading "360° IT PM" [level=3] [ref=f2e140]
+            - generic [ref=f2e141]: "03"
+          - paragraph [ref=f2e142]: End-to-end tactical oversight, ensuring absolute operational success from inception to deployment.
+        - generic [ref=f2e147]:
+          - generic [ref=f2e148]:
+            - heading "Networking" [level=3] [ref=f2e149]
+            - generic [ref=f2e150]: "04"
+          - paragraph [ref=f2e151]: Secure, low-latency communication matrices designed for classified data transmission.
+        - generic [ref=f2e156]:
+          - generic [ref=f2e157]:
+            - heading "Privacy" [level=3] [ref=f2e158]
+            - generic [ref=f2e159]: "05"
+          - paragraph [ref=f2e160]: Zero-knowledge architectures and cryptographic defense mechanisms to protect sensitive assets.
+        - generic [ref=f2e165]:
+          - generic [ref=f2e166]:
+            - heading "AI Solutions" [level=3] [ref=f2e167]
+            - generic [ref=f2e168]: "06"
+          - paragraph [ref=f2e169]: Strategic implementation of artificial intelligence for predictive analysis and automation.
+    - generic [ref=f2e185]:
+      - heading "Contact us" [level=2] [ref=f2e186]
+      - link "hello@skape.io" [ref=f2e187] [cursor=pointer]:
+        - /url: mailto:hello@skape.io
+  - contentinfo [ref=f2e188]:
+    - generic [ref=f2e193]:
+      - generic [ref=f2e194]: © 2026 skape.io
+      - navigation "Legal" [ref=f2e195]:
+        - button "Privacy Policy" [ref=f2e196] [cursor=pointer]
+        - button "Imprint" [ref=f2e197] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=f2e203] [cursor=pointer]

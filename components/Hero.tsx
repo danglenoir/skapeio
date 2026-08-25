@@ -1,55 +1,31 @@
-'use client';
-import { ReactNode, useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import { ReactNode } from 'react';
 
-import i18n from '@/app/i18n';
+import { hero } from '@/app/i18n';
 import Container from '@/components/Container';
+import RotatingWords from '@/components/RotatingWords';
+import SculptureCanvas from '@/components/SculptureCanvas';
 import Section from '@/components/Section';
 
 import styles from '@/components/Hero.module.css';
 
-const { things } = i18n.en.hero;
-
-const Hero = (): ReactNode => {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % things.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <Section 
-      id="home" 
-      sculpture={true}
-      className={styles.Hero}
-    >
-      <Container>
-        <h1 className={styles.Hero__Title}>
+const Hero = (): ReactNode => (
+  <Section
+    id="home"
+    className={styles.Hero}
+    visual={<SculptureCanvas />}
+  >
+    <Container>
+      <h1 className={styles.Hero__Title}>
+        <span className={styles.Hero__Title__Accessible}>
+          {hero.accessibleTitle}
+        </span>
+        <span aria-hidden="true">
           hello, we are skape.io and we do{' '}
-          <span className={styles.Hero__Title__Things}>
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, filter: 'blur(10px)', letterSpacing: '-0.05em' }}
-                animate={{ opacity: 1, filter: 'blur(0px)', letterSpacing: '-0.05em' }}
-                exit={{ opacity: 0, filter: 'blur(10px)', letterSpacing: '0.05em' }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className={styles.Hero__Title__Things__Thing}
-              >
-                {things[index]}
-              </motion.span>
-            </AnimatePresence>
-            <span className={styles.Hero__Title__Things__Hidden}>
-              {things.reduce((a, b) => a.length > b.length ? a : b)}
-            </span>
-          </span>
-        </h1>
-      </Container>
-    </Section>
-  );
-};
+          <RotatingWords things={hero.things} />
+        </span>
+      </h1>
+    </Container>
+  </Section>
+);
 
 export default Hero;

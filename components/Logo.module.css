@@ -1,0 +1,13 @@
+.Logo,
+.LogoIcon {
+  height: calc(var(--unit) * 10);
+  overflow: hidden;
+}
+
+.Logo {
+  width: 12.5rem;
+}
+
+.LogoIcon {
+  width: calc(var(--unit) * 9);
+}

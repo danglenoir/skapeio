@@ -1,0 +1,10 @@
+.SceneCanvas {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.SceneCanvas canvas {
+  position: relative;
+  z-index: 1;
+}

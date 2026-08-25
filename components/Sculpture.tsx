@@ -5,7 +5,13 @@ import { useGLTF } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
-const MODEL_URL = '/models/discobolus-mesh.glb';
+const MODEL_URL = '/models/discobolus-mesh.19f72baea8.glb';
+
+type SculptureProps = {
+  animate?: boolean;
+  lowQuality?: boolean;
+  onReady?: () => void;
+};
 
 type PreparedSculpture = {
   center: readonly [number, number, number];
@@ -49,7 +55,11 @@ const prepareSculpture = (
   };
 };
 
-const DiscobolusMesh = (): ReactNode => {
+const DiscobolusMesh = ({
+  animate = true,
+  lowQuality = false,
+  onReady,
+}: SculptureProps): ReactNode => {
   const rotatingRef = useRef<THREE.Group>(null);
   const cageRef = useRef<THREE.Mesh>(null);
   const { scene } = useGLTF(MODEL_URL);
@@ -89,12 +99,18 @@ const DiscobolusMesh = (): ReactNode => {
   const scale = targetHeight / sculpture.height;
   const horizontalOffset = isCompact ? -5.4 : -3.2;
 
+  useEffect(() => {
+    onReady?.();
+  }, [onReady]);
+
   useEffect(() => () => {
     depthMaterial.dispose();
     wireMaterial.dispose();
   }, [depthMaterial, wireMaterial]);
 
   useFrame(({ clock }, delta) => {
+    if (!animate) return;
+
     if (rotatingRef.current) {
       rotatingRef.current.rotation.y = rotationBase
         + Math.sin(clock.elapsedTime * 0.16) * 0.1;
@@ -117,7 +133,7 @@ const DiscobolusMesh = (): ReactNode => {
         renderOrder={0}
         scale={isCompact ? 0.82 : 1}
       >
-        <icosahedronGeometry args={[13.7, 2]} />
+        <icosahedronGeometry args={[13.7, lowQuality ? 1 : 2]} />
         <meshBasicMaterial
           color="#ffffff"
           wireframe
@@ -150,12 +166,10 @@ const DiscobolusMesh = (): ReactNode => {
   );
 };
 
-const Sculpture = (): ReactNode => (
+const Sculpture = (props: SculptureProps): ReactNode => (
   <Suspense fallback={null}>
-    <DiscobolusMesh />
+    <DiscobolusMesh {...props} />
   </Suspense>
 );
-
-useGLTF.preload(MODEL_URL);
 
 export default Sculpture;

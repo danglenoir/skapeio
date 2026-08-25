@@ -4,7 +4,7 @@
   line-height: var(--text-xs--line-height);
   text-transform: uppercase;
   letter-spacing: var(--tracking-widest);
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .Contact__Link {
@@ -18,6 +18,11 @@
   transition-duration: var(--default-transition-duration);
   transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
   text-box: trim-both cap alphabetic;
+}
+
+.Contact__Link:focus-visible {
+  outline: 0.125rem solid currentcolor;
+  outline-offset: calc(var(--unit) * 2);
 }
 
 @media (width >= 48rem) {
@@ -45,6 +50,14 @@
   transition: transform calc(2 * var(--default-transition-duration)) var(--default-transition-timing-function);
 }
 
-.Contact__Link:hover .Contact__Link__Line {
+.Contact__Link:hover .Contact__Link__Line,
+.Contact__Link:focus-visible .Contact__Link__Line {
   --scaleX: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Contact__Link,
+  .Contact__Link__Line {
+    transition: none;
+  }
 }

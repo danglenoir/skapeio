@@ -10,26 +10,26 @@ import Nav from '@/components/Nav';
 import PrivacyPolicyDialog from '@/components/PrivacyPolicyDialog';
 import References from '@/components/References';
 import Services from '@/components/Services';
-import TopBar from '@/components/TopLink';
+import TopLink from '@/components/TopLink';
 
 import styles from '@/app/page.module.css';
 
 const Home = (): ReactNode => (
-  <main>
-    <TopBar />
+  <>
+    <TopLink />
     <Nav />
-    <div className={styles.Content}>
+    <main className={styles.Content}>
       <Hero />
       <About />
       <References />
       <JordBanner />
       <Services />
       <Contact />
-      <Footer />
-      <PrivacyPolicyDialog />
-      <ImprintDialog />
-    </div>
-  </main>
+    </main>
+    <Footer />
+    <PrivacyPolicyDialog />
+    <ImprintDialog />
+  </>
 );
 
 export default Home;

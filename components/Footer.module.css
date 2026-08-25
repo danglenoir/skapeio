@@ -58,7 +58,7 @@
 .Footer__Logo,
 .Footer__Copy,
 .Footer__Button {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .Footer__Logo {
@@ -72,6 +72,12 @@
   transition: opacity var(--default-transition-duration) var(--default-transition-timing-function);
 }
 
-.Footer__Button:hover {
+.Footer__Button:hover,
+.Footer__Button:focus-visible {
   opacity: 1;
+}
+
+.Footer__Button:focus-visible {
+  outline: 0.125rem solid currentcolor;
+  outline-offset: calc(var(--unit) * 2);
 }

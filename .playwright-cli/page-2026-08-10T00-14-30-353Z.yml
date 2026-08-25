@@ -1,0 +1,82 @@
+- generic [active] [ref=f3e1]:
+  - link "Back to top" [ref=f3e2] [cursor=pointer]:
+    - /url: "#home"
+  - main [ref=f3e5]:
+    - heading "Hello, we are skape.io. We deliver web development, cloud infrastructure, DevOps, networking, privacy, and IT project management." [level=1] [ref=f3e9]:
+      - generic [ref=f3e11]:
+        - text: hello, we are skape.io and we do
+        - generic [ref=f3e12]: web development.
+    - generic [ref=f3e24]:
+      - generic [ref=f3e25]:
+        - generic [ref=f3e26]: "01"
+        - heading "About us" [level=2] [ref=f3e27]
+      - generic [ref=f3e28]:
+        - paragraph [ref=f3e29]: We operate in the shadows of the digital realm, providing uncompromising infrastructure and architectural solutions. skape.io is not just a technology provider; we are the silent partners in your most critical operations, ensuring that your digital footprint is secure, scalable, and resilient against any threat. Our methodologies are forged in the fires of high-stakes environments where failure is not an option.
+        - paragraph [ref=f3e30]: By leveraging cutting-edge cloud native principles, Zero Trust architectures, and advanced deployment strategies, we craft environments that are as impenetrable as they are efficient. Every line of code, every network configuration, and every infrastructure deployment is executed with military precision. We don't just build systems; we engineer strategic advantages.
+    - region [ref=f3e31]:
+      - generic [ref=f3e32]:
+        - heading "References" [level=2] [ref=f3e33]
+        - list "Partner organizations" [ref=f3e36]:
+          - listitem [ref=f3e37]:
+            - img "Brain Bar" [ref=f3e38]
+          - listitem [ref=f3e39]:
+            - img "Déryné" [ref=f3e40]
+          - listitem [ref=f3e41]:
+            - img "Madách Színház" [ref=f3e42]
+          - listitem [ref=f3e43]:
+            - img "Magyar Nemzeti Bank" [ref=f3e44]
+          - listitem [ref=f3e45]:
+            - img "Spirit FM" [ref=f3e46]
+          - listitem [ref=f3e47]:
+            - img "Veszprém-Balaton 2023" [ref=f3e48]
+    - generic [ref=f3e59]:
+      - heading "JORD" [level=2] [ref=f3e60]
+      - paragraph [ref=f3e61]: The ultimate cloud-based CMS. Engineered for maximum security, zero-latency content delivery, and total operational control.
+      - button "Explore JORD. JORD website coming soon." [disabled] [ref=f3e62]:
+        - generic [ref=f3e63]: Explore JORD
+    - generic [ref=f3e71]:
+      - generic [ref=f3e72]:
+        - generic [ref=f3e73]: "02"
+        - heading "Capabilities" [level=2] [ref=f3e74]
+      - generic [ref=f3e76]:
+        - generic [ref=f3e81]:
+          - generic [ref=f3e82]:
+            - heading "Web Dev" [level=3] [ref=f3e83]
+            - generic [ref=f3e84]: "01"
+          - paragraph [ref=f3e85]: High-performance, secure digital interfaces engineered for scale and resilience.
+        - generic [ref=f3e90]:
+          - generic [ref=f3e91]:
+            - heading "DevOps" [level=3] [ref=f3e92]
+            - generic [ref=f3e93]: "02"
+          - paragraph [ref=f3e94]: Continuous integration, automated deployments, and unyielding infrastructure architecture.
+        - generic [ref=f3e99]:
+          - generic [ref=f3e100]:
+            - heading "360° IT PM" [level=3] [ref=f3e101]
+            - generic [ref=f3e102]: "03"
+          - paragraph [ref=f3e103]: End-to-end tactical oversight, ensuring absolute operational success from inception to deployment.
+        - generic [ref=f3e108]:
+          - generic [ref=f3e109]:
+            - heading "Networking" [level=3] [ref=f3e110]
+            - generic [ref=f3e111]: "04"
+          - paragraph [ref=f3e112]: Secure, low-latency communication matrices designed for classified data transmission.
+        - generic [ref=f3e117]:
+          - generic [ref=f3e118]:
+            - heading "Privacy" [level=3] [ref=f3e119]
+            - generic [ref=f3e120]: "05"
+          - paragraph [ref=f3e121]: Zero-knowledge architectures and cryptographic defense mechanisms to protect sensitive assets.
+        - generic [ref=f3e126]:
+          - generic [ref=f3e127]:
+            - heading "AI Solutions" [level=3] [ref=f3e128]
+            - generic [ref=f3e129]: "06"
+          - paragraph [ref=f3e130]: Strategic implementation of artificial intelligence for predictive analysis and automation.
+    - generic [ref=f3e146]:
+      - heading "Contact us" [level=2] [ref=f3e147]
+      - link "hello@skape.io" [ref=f3e148] [cursor=pointer]:
+        - /url: mailto:hello@skape.io
+  - contentinfo [ref=f3e149]:
+    - generic [ref=f3e154]:
+      - generic [ref=f3e155]: © 2026 skape.io
+      - navigation "Legal" [ref=f3e156]:
+        - button "Privacy Policy" [ref=f3e157] [cursor=pointer]
+        - button "Imprint" [ref=f3e158] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=f3e164] [cursor=pointer]

@@ -1,14 +1,17 @@
 import { ReactNode } from 'react';
-import Link from 'next/link';
 
 import Logo from '@/components/Logo';
 
 import styles from '@/components/TopLink.module.css';
 
 const TopLink = (): ReactNode => (
-  <Link href="#home" className={styles.TopLink}>
+  <a
+    href="#home"
+    aria-label="Back to top"
+    className={styles.TopLink}
+  >
     <Logo onlyIcon />
-  </Link>
+  </a>
 );
 
 export default TopLink;

@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: calc(var(--unit) * 20);
+  width: calc(var(--unit) * 16);
   height: calc(var(--unit) * 6);
   font-family: var(--font-mono);
   text-transform: uppercase;
@@ -11,27 +11,41 @@
 }
 
 .NavItem__Label {
-  --opacity: 0;
-
   position: absolute;
   right: 100%;
   font-size: var(--text-xs);
   line-height: var(--text-xs--line-height);
-  white-space: nowrap ;
-  opacity: var(--opacity);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
   transition: opacity var(--default-transition-duration) var(--default-transition-timing-function);
 }
 
-.NavItem:hover .NavItem__Label {
-  --opacity: 1;
+.NavItem:hover .NavItem__Label,
+.NavItem:focus-visible .NavItem__Label {
+  opacity: 1;
 }
 
 .NavItem__Indicator {
   width: calc(var(--unit) * 6);
   height: 0.1875rem;
   background: var(--color-white);
+  opacity: var(--nav-opacity, 0.3);
+  transform: scaleX(var(--nav-scale, 1));
   transform-origin: right center;
-  transition: 
-    transform calc(var(--default-transition-duration) / 2) var(--default-transition-timing-function), 
+  transition:
+    transform calc(var(--default-transition-duration) / 2) var(--default-transition-timing-function),
     opacity calc(var(--default-transition-duration) / 2) var(--default-transition-timing-function);
+}
+
+.NavItem:focus-visible {
+  outline: 0.125rem solid currentcolor;
+  outline-offset: calc(var(--unit) * 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .NavItem__Label,
+  .NavItem__Indicator {
+    transition: none;
+  }
 }

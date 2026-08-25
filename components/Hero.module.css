@@ -28,21 +28,71 @@
 
 .Hero__Title__Things {
   position: relative;
-  display: inline-flex;
+  display: inline-grid;
   align-items: center;
 }
 
 .Hero__Title__Things__Thing,
 .Hero__Title__Things__Hidden {
-  white-space: nowrap;
+  grid-area: 1 / 1;
 }
 
 .Hero__Title__Things__Thing {
-  position: absolute;
-  left: 0;
+  animation: hero-thing-enter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .Hero__Title__Things__Hidden {
+  visibility: hidden;
   pointer-events: none;
   opacity: 0;
+}
+
+.Hero__Title__Accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+}
+
+@media (width < 48rem) {
+  .Hero__Title__Things {
+    display: grid;
+    width: 100%;
+    margin-top: 0.08em;
+  }
+
+  .Hero__Title__Things__Thing,
+  .Hero__Title__Things__Hidden {
+    white-space: normal;
+  }
+}
+
+@media (width >= 48rem) {
+  .Hero__Title__Things__Thing,
+  .Hero__Title__Things__Hidden {
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Hero__Title__Things__Thing {
+    animation: none;
+  }
+}
+
+@keyframes hero-thing-enter {
+  from {
+    opacity: 0;
+    filter: blur(0.625rem);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
 }

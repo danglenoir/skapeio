@@ -1,33 +1,33 @@
-'use client';
 import { ReactNode } from 'react';
-import { Canvas } from '@react-three/fiber';
 
 import Background from '@/components/Background';
 import Corners from '@/components/Corners';
-import Sculpture from '@/components/Sculpture';
 import { cn } from '@/lib/utils';
 
 import styles from '@/components/Section.module.css';
 
 type SectionProps = {
   id?: string,
+  labelledBy?: string,
   className?: string,
   contentClassName?: string,
   children: ReactNode,
   decorate?: boolean,
-  sculpture?: boolean
+  visual?: ReactNode,
 }
   
 const Section = ({
   id,
+  labelledBy,
   className,
   contentClassName,
   children,
   decorate,
-  sculpture
+  visual,
 }: SectionProps) => (
   <section 
-    id={id} 
+    id={id}
+    aria-labelledby={labelledBy}
     className={cn(styles.Section, className)}
   >
     {decorate && 
@@ -36,14 +36,12 @@ const Section = ({
         <Corners />
       </>
     }
-    {sculpture && 
-      <div className={styles.Sculpture}>
-        <Canvas 
-          dpr={[1, 1.5]} 
-          camera={{ position: [0, 0, 40], fov: 45 }}
-        >
-          <Sculpture />
-        </Canvas>
+    {visual &&
+      <div
+        aria-hidden="true"
+        className={styles.Section__Visual}
+      >
+        {visual}
       </div>
     }
     <div className={cn(styles.Section__Content, contentClassName)}>

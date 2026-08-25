@@ -1,40 +1,33 @@
-'use client';
 import { ReactNode } from 'react';
-import { Canvas } from '@react-three/fiber';
 
-import i18n from '@/app/i18n';
+import { jord } from '@/app/i18n';
 import Button from '@/components/Button';
 import Container from '@/components/Container';
-import Planet from '@/components/Planet';
+import PlanetCanvas from '@/components/PlanetCanvas';
 import Section from '@/components/Section';
 
 import styles from '@/components/JordBanner.module.css';
 
-const { jord } = i18n.en;
-
 const JordBanner = (): ReactNode => (
-  <Section 
-    id="jord" 
+  <Section
+    id="jord"
     decorate={true}
+    visual={(
+      <div className={styles.JordBanner__PlanetWrapper}>
+        <PlanetCanvas />
+      </div>
+    )}
   >
-    <div className={styles.JordBanner__PlanetWrapper}>
-      <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 30], fov: 45 }}>
-        <Planet />
-      </Canvas>
-    </div>
-    
     <Container gap={6}>
       <h2 className={styles.JordBanner__Title}>{jord.title}</h2>
-      {jord.text.map((p, i) => (
-        <p key={i} className={styles.JordBanner__Text}>{p}</p>
+      {jord.text.map((paragraph) => (
+        <p key={paragraph} className={styles.JordBanner__Text}>{paragraph}</p>
       ))}
-      {jord.cta.map(({ label, href }, i) => (
-        <Button
-          key={i}
-          label={label}
-          href={href}
-        />
-      ))}
+      <Button
+        label={jord.cta.label}
+        href={jord.cta.href ?? undefined}
+        unavailableLabel={jord.cta.unavailableLabel}
+      />
     </Container>
   </Section>
 );

@@ -1,7 +1,21 @@
-.References__Content {
+.References__Title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+}
+
+.References__Container {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
+  gap: 0;
+  padding-block: 0;
 }
 
 .References__Wrapper,
@@ -29,8 +43,8 @@
 
 .References__Gradients {
   z-index: 1;
-  display: none;
-  grid-template-columns: calc(var(--unit) * 32) 1fr calc(var(--unit) * 32);
+  grid-template-columns: calc(var(--unit) * 12) 1fr calc(var(--unit) * 12);
+  height: 100%;
   pointer-events: none;
 }
 
@@ -63,4 +77,14 @@
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .References__Wrapper__Marquee {
+    animation: none;
+  }
+
+  .PartnerLogoSet {
+    display: none;
+  }
 }

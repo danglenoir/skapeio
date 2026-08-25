@@ -14,17 +14,18 @@ const ButtonCommand = ({
   command
 }: ButtonCommandProps): ReactNode => (
   <button
+    type="button"
     commandfor={commandFor}
     command={command}
     className={styles.Button}
   >
     <span className={styles.Button__Label}>{label}</span>
-    <div className={styles.Button__Background}>
-      <div className={styles.Button__TopLeft} />
-      <div className={styles.Button__TopRight} />
-      <div className={styles.Button__BottomLeft} />
-      <div className={styles.Button__BottomRight} />
-    </div>
+    <span className={styles.Button__Background} aria-hidden="true">
+      <span className={styles.Button__TopLeft} />
+      <span className={styles.Button__TopRight} />
+      <span className={styles.Button__BottomLeft} />
+      <span className={styles.Button__BottomRight} />
+    </span>
   </button>
 );
 

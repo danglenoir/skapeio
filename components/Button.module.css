@@ -6,8 +6,17 @@
   grid-template-columns: 1fr;
 }
 
-.Button:hover {
+.Button:not(:disabled):hover {
   --border-color: hsl(from var(--color-black) h s l / 50%);
+}
+
+.Button:disabled {
+  cursor: not-allowed;
+}
+
+.Button:focus-visible {
+  outline: 0.125rem solid var(--color-white);
+  outline-offset: 0.25rem;
 }
 
 .Button__Label {
@@ -23,7 +32,7 @@
   transition: color var(--default-transition-duration) var(--default-transition-timing-function);
 }
 
-.Button:hover .Button__Label {
+.Button:not(:disabled):hover .Button__Label {
   color: var(--color-black);
 }
 
@@ -38,7 +47,7 @@
   transition: background-color var(--default-transition-duration) var(--default-transition-timing-function);
 }
 
-.Button:hover .Button__Background {
+.Button:not(:disabled):hover .Button__Background {
   background: hsl(from var(--color-white) h s l / 75%);
 }
 

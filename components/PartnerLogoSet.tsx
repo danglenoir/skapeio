@@ -1,30 +1,34 @@
 import { ReactNode } from 'react';
 
-import i18n from '@/app/i18n';
+import { partners } from '@/app/i18n';
 import PartnerLogo from '@/components/PartnerLogo';
 import { cn } from '@/lib/utils';
 
 import styles from '@/components/PartnerLogoSet.module.css'
 
-const { partners } = i18n.en;
-
 type PartnerLogoSetProps = {
-  prefix?: string;
+  ariaLabel?: string;
+  ariaHidden?: boolean;
   className?: string;
 }
 
 const PartnerLogoSet = ({ 
-  prefix,
+  ariaLabel,
+  ariaHidden = false,
   className
 }: PartnerLogoSetProps): ReactNode => (
-  <div className={cn(styles.PartnerLogoSet, className)}>
-    {partners.map((partner, i) => (
+  <ul
+    aria-label={ariaLabel}
+    aria-hidden={ariaHidden || undefined}
+    className={cn(styles.PartnerLogoSet, className)}
+  >
+    {partners.map((partner) => (
       <PartnerLogo 
-        key={`${prefix}-${partner.label}-${i}`} 
+        key={partner.src}
         {...partner} 
       />
     ))}
-  </div>
+  </ul>
 );
 
 export default PartnerLogoSet;

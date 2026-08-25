@@ -5,7 +5,15 @@ import { ReactNode, Suspense } from 'react';
 import LoadingPlanet from '@/components/LoadingPlanet';
 import MeshEarth from '@/components/MeshEarth';
 
-const Planet = (): ReactNode => (
+type PlanetProps = {
+  animate?: boolean;
+  onReady?: () => void;
+};
+
+const Planet = ({
+  animate = true,
+  onReady,
+}: PlanetProps): ReactNode => (
   <group>
     <ambientLight 
       intensity={0.3} 
@@ -22,7 +30,10 @@ const Planet = (): ReactNode => (
       color="#668397" 
     />
     <Suspense fallback={<LoadingPlanet />}>
-      <MeshEarth />
+      <MeshEarth
+        animate={animate}
+        onReady={onReady}
+      />
     </Suspense>
   </group>
 );

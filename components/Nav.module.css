@@ -8,3 +8,9 @@
   align-items: end;
   transform: translateY(-50%);
 }
+
+@media (width < 48rem), (hover: none), (pointer: coarse) {
+  .Nav {
+    display: none;
+  }
+}

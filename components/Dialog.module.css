@@ -86,6 +86,20 @@
   min-height: 0;
   padding-right: calc(var(--unit) * 2);
   overflow-y: auto;
-  scrollbar-color: hsl(from var(--color-black) h s 30%) hsl(from var(--color-black) h s 10%);
+  scrollbar-color: 
+    hsl(from var(--color-black) h s 30%) 
+    hsl(from var(--color-black) h s 10%);
   scrollbar-width: thin;
+}
+
+.Dialog :focus-visible {
+  outline: 0.125rem solid currentcolor;
+  outline-offset: calc(var(--unit) * 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Dialog,
+  .Dialog::backdrop {
+    transition: none;
+  }
 }

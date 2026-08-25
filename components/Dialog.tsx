@@ -18,6 +18,7 @@ const Dialog = ({
 }: DialogProps): ReactNode => (
   <dialog 
     id={id}
+    aria-labelledby={`${id}-title`}
     className={styles.Dialog}
   >
     <Section
@@ -25,7 +26,12 @@ const Dialog = ({
       contentClassName={styles.Dialog__Section}
     >
       <header className={styles.Dialog__Header}>
-        <h2 className={styles.Dialog__Title}>{title}</h2>
+        <h2
+          id={`${id}-title`}
+          className={styles.Dialog__Title}
+        >
+          {title}
+        </h2>
         <ButtonCommand 
           commandFor={id} 
           command="close" 
