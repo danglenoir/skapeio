@@ -1,28 +1,31 @@
 import { ReactNode } from 'react';
 
-import { contact } from '@/app/i18n';
+import ContactTesseract from '@/components/ContactTesseract';
 import Container from '@/components/Container';
 import Section from '@/components/Section';
 
 import styles from '@/components/Contact.module.css';
 
 const Contact = (): ReactNode => (
-  <Section 
-    id="contact" 
+  <Section
+    id="contact"
+    labelledBy="contact-email"
     decorate={true}
   >
-    <Container gap={0}>
-      <h2 className={styles.Contact__Headline}>{contact.headline}</h2>
-      <a
-        href="mailto:hello@skape.io"
-        className={styles.Contact__Link}
-      >
-        hello@skape.io
-        <span
-          className={styles.Contact__Link__Line}
-          aria-hidden="true"
-        />
-      </a>
+    <Container gap={0} className={styles.Contact__Container}>
+      <ContactTesseract>
+        <a
+          id="contact-email"
+          href="mailto:hello@skape.io"
+          className={styles.Contact__Link}
+        >
+          hello@skape.io
+          <span
+            className={styles.Contact__Link__Line}
+            aria-hidden="true"
+          />
+        </a>
+      </ContactTesseract>
     </Container>
   </Section>
 );
