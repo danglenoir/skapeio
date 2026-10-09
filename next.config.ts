@@ -17,6 +17,7 @@ const contentSecurityPolicy = [
 
 const nextConfig: NextConfig = {
   agentRules: false,
+  allowedDevOrigins: ['100.118.101.108'],
   reactStrictMode: true,
   poweredByHeader: false,
   typescript: {
