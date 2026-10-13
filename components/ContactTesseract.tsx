@@ -39,6 +39,7 @@ const ContactTesseract = ({ children }: { children: ReactNode }): ReactNode => {
     };
 
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mobileQuery = window.matchMedia('(width < 48rem)');
     let width = 0;
     let height = 0;
     let rootFontSize = 16;
@@ -61,7 +62,10 @@ const ContactTesseract = ({ children }: { children: ReactNode }): ReactNode => {
 
       ripples = ripples.filter((ripple) => now - ripple.startedAt < 2400);
       const scale = width / LOGO_MARK_WIDTH;
-      const centerY = LOGO_MARK_HEIGHT * scale / 2 - 5 * rootFontSize;
+      // Center the logo on mobile; keep its desktop top at -5rem.
+      const centerY = mobileQuery.matches
+        ? height / 2
+        : LOGO_MARK_HEIGHT * scale / 2 - 5 * rootFontSize;
       const cosine = Math.cos(rotation);
       const sine = Math.sin(rotation);
       const pointerRadius = Math.min(86, Math.max(48, width * 0.065)) / 3;
@@ -103,7 +107,6 @@ const ContactTesseract = ({ children }: { children: ReactNode }): ReactNode => {
             offsetY += dy / Math.max(distance, 1) * wave;
           }
 
-          // Keep the full-width logo's top at -5rem, independent of the section height.
           // A single uniform scale and in-plane rotation preserve the SVG's proportions.
           const localX = (x - Math.max(-48, Math.min(48, offsetX)) - width / 2) / scale;
           const localY = (y - Math.max(-48, Math.min(48, offsetY)) - centerY) / scale;
