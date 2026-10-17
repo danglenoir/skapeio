@@ -1,0 +1,280 @@
+/* fabrik one-pager (skape.io/fabrik). Everything is scoped under .fabrik so it never touches the skape.io site. */
+/* fabrik — "The product performs", black and crimson. Tokens first; everything below uses them. */
+.fabrik {
+  --font-ui: var(--font-jetbrains-mono);
+  --bg: #0a0a0a;
+  --surface: #151515;
+  --surface-2: #232323;
+  --ink: #efefef;
+  --muted: #a3a3a3;
+  --accent: #b11226;
+  --accent-hi: #e0283f;
+  --accent-ink: #fff;
+  --field: #efefef;
+  --field-ink: #0a0a0a;
+  --ui-bg: #111;
+  --ui-line: #2c2c2c;
+  --margin: clamp(16px, 3vw, 40px);
+  --gap-section: clamp(96px, 12vw, 176px);
+  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-statement: clamp(1.5rem, 1rem + 1.6vw, 2.25rem);
+  --step-head: clamp(2rem, 1.3rem + 3.2vw, 4rem);
+  --step-display: clamp(2.25rem, 1rem + 5vw, 5.5rem);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.fabrik *,
+.fabrik *::before,
+.fabrik *::after { box-sizing: border-box; }
+.fabrik { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+.fabrik {
+  margin: 0;
+  font: 400 var(--step-body) / 1.5 var(--font-text), system-ui, sans-serif; color: var(--ink); letter-spacing: -0.005em; background: #000; -webkit-font-smoothing: antialiased;
+}
+.fabrik h1,
+.fabrik h2,
+.fabrik h3,
+.fabrik p,
+.fabrik figure,
+.fabrik pre { margin: 0; }
+.fabrik h1,
+.fabrik h2 { font-weight: 600; line-height: 0.95; letter-spacing: -0.04em; }
+.fabrik h3 { font-weight: 500; line-height: 1.15; letter-spacing: -0.02em; }
+.fabrik a { color: inherit; }
+.fabrik button,
+.fabrik input,
+.fabrik select { font: inherit; color: inherit; }
+.fabrik pre,
+.fabrik code { font-family: var(--font-ui), monospace; font-size: inherit; }
+.fabrik img { display: block; max-width: 100%; height: auto; }
+.fabrik ul,
+.fabrik ol { padding: 0; margin: 0; }
+.fabrik :focus-visible { outline: 2px solid var(--accent-hi); outline-offset: 3px; }
+.fabrik ::selection { color: var(--accent-ink); background: var(--accent); }
+.fabrik .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; white-space: nowrap; clip: rect(0 0 0 0); }
+.fabrik .skip { position: absolute; top: -100px; left: var(--margin); z-index: 10; padding: 8px 12px; color: var(--bg); background: var(--ink); }
+.fabrik .skip:focus { top: 8px; }
+/* ---------- top ---------- */
+.fabrik .top { display: flex; align-items: center; justify-content: space-between; padding: 28px var(--margin) 0; }
+.fabrik .wordmark { display: block; width: auto; height: clamp(28px, 3.2vw, 44px); fill: var(--ink); }
+.fabrik .top-mark:hover .wordmark { fill: var(--accent-hi); }
+.fabrik .top-nav { display: flex; gap: clamp(16px, 2.4vw, 32px); font-size: var(--step-small); }
+.fabrik .top-nav a { color: var(--muted); text-decoration: none; transition: color 150ms; }
+.fabrik .top-nav a:hover { color: var(--ink); }
+/* ---------- hero ---------- */
+.fabrik .hero { padding: clamp(40px, 6vw, 88px) var(--margin) 0; }
+.fabrik .hero-copy { max-width: 62rem; }
+.fabrik .hero h1 { max-width: 13em; font-size: var(--step-display); color: #f4f4f4; }
+.fabrik .lead { max-width: 36em; margin-top: 28px; font-size: var(--step-lead); line-height: 1.4; }
+.fabrik .hero-actions { display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; margin-top: 36px; }
+.fabrik .button {
+  display: inline-block; padding: 14px 22px; font-weight: 500; color: var(--accent-ink); text-decoration: none; background: var(--accent);
+  transition: background-color 150ms var(--ease), transform 150ms var(--ease);
+}
+.fabrik .button:hover { background: var(--accent-hi); }
+.fabrik .button:active { transform: translateY(1px); }
+.fabrik .textlink { font-weight: 500; text-decoration: none; }
+.fabrik .textlink::after { display: inline-block; content: ' →'; transition: transform 150ms var(--ease); }
+.fabrik .textlink:hover::after { transform: translateX(4px); }
+/* What fabrik is made of: three parts of unequal width and tone, each with a real fragment. */
+.fabrik .parts { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px; margin-top: clamp(56px, 7vw, 96px); list-style: none; }
+.fabrik .part { display: flex; flex-direction: column; gap: 12px; min-height: 300px; padding: clamp(20px, 2.2vw, 32px); }
+.fabrik .part h2 { font-size: var(--step-lead); line-height: 1.1; letter-spacing: -0.02em; }
+.fabrik .part p { font-size: var(--step-body); }
+.fabrik .part--herdr { grid-column: 1 / span 5; background: var(--surface); }
+.fabrik .part--plane { grid-column: 6 / span 4; background: var(--surface-2); }
+.fabrik .part--obsidian { grid-column: 10 / span 3; color: var(--field-ink); background: var(--field); }
+.fabrik .part-ui { margin-top: auto; font: 13px/1.5 var(--font-ui), monospace; }
+.fabrik .part-soon { font-size: var(--step-small) !important; color: var(--muted); }
+.fabrik .part--obsidian .part-soon { color: #4a4a47; }
+.fabrik .part-tabs { display: flex; flex-wrap: wrap; gap: 2px; padding: 6px; background: #0c0c0c; }
+.fabrik .part-tabs span { padding: 6px 10px; color: var(--muted); }
+.fabrik .part-tabs .on { color: var(--ink); background: var(--ui-bg); }
+.fabrik .part-tabs .on::first-letter { color: var(--accent-hi); }
+.fabrik .part-ticket { display: flex; flex-wrap: wrap; gap: 6px; }
+.fabrik .part-ticket span { padding: 6px 10px; color: #161616; background: #f3f3f1; }
+.fabrik .part-ticket span:nth-child(2) { color: #fff; background: var(--accent); }
+.fabrik .part-files { display: grid; padding: 10px 12px; color: #161616; white-space: pre; background: #fff; }
+.fabrik .part-files span:nth-child(2) { color: var(--accent); }
+/* ---------- story: one row of archival pictures, the story set over it line by line ---------- */
+.fabrik .story { margin-top: var(--gap-section); }
+.fabrik .story-row { display: flex; }
+.fabrik .story-row figure { flex: var(--r) 1 0; min-width: 0; aspect-ratio: var(--r); }
+.fabrik .story-row img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.15); }
+.fabrik .story-text { position: relative; z-index: 2; padding: 0 var(--margin); margin-top: calc(-1 * clamp(64px, 9vw, 150px)); }
+.fabrik .story-text h2 { font-size: var(--step-head); line-height: 1.12; }
+.fabrik .story-text p { margin-top: 0.5em; font-size: var(--step-lead); font-weight: 500; line-height: 1.5; letter-spacing: -0.015em; }
+.fabrik .story-line { display: block; width: fit-content; }
+/* The red sits behind each line of text, not behind a box. */
+.fabrik .story-line > span { padding: 0.06em 0.3em; color: #fff; background: var(--accent); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.fabrik .story.is-live .story-line { opacity: 0; transform: translateY(0.5em); transition: opacity 450ms var(--ease), transform 450ms var(--ease); }
+.fabrik .story.is-live .story-line.is-shown { opacity: 1; transform: none; }
+/* ---------- how it works: one panel, diagram and steps together ---------- */
+.fabrik .how { padding: var(--gap-section) var(--margin) 0; }
+.fabrik .how-head { max-width: 44rem; }
+.fabrik .how-head h2 { font-size: var(--step-head); }
+.fabrik .how-head p { margin-top: 20px; }
+.fabrik .how-more { max-width: 44rem; margin-top: 32px; opacity: 0.6; }
+.fabrik .how-more a { color: var(--ink); }
+.fabrik .how-more a:hover { color: var(--accent-hi); }
+.fabrik .flow { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); margin-top: 48px; background: var(--ui-bg); }
+.fabrik .flow-stage { position: relative; aspect-ratio: 16 / 10; container-type: size; overflow: hidden; font: 13px/1.45 var(--font-ui), monospace; }
+.fabrik .flow-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.fabrik .flow-lines line { stroke: #3a3a3a; stroke-width: 2px; vector-effect: non-scaling-stroke; stroke-dasharray: 4 4; transition: stroke 300ms; }
+.fabrik .flow-lines line.on { stroke: var(--accent-hi); stroke-dasharray: none; }
+.fabrik .flow-you {
+  position: absolute; top: 2.5%; left: 50%; padding: 4px 12px;
+  font-family: var(--font-text), sans-serif; color: var(--muted); white-space: nowrap; background: #222; transform: translateX(-50%); transition: background-color 300ms, color 300ms;
+}
+.fabrik .flow-you.is-on { color: #111; background: #f3f3f1; }
+.fabrik .flow-node { position: absolute; display: grid; gap: 1.2cqh; align-content: start; padding: 2.2cqh 1.6cqw; background: #1b1b1b; }
+.fabrik .flow-plane { top: 32%; left: 3%; width: 24%; height: 46%; }
+.fabrik .flow-herdr { top: 24%; left: 33%; width: 34%; height: 62%; }
+.fabrik .flow-obsidian { top: 32%; left: 73%; width: 24%; height: 46%; }
+.fabrik .flow-head { font: 600 15px/1.2 var(--font-text), sans-serif; color: var(--ink); letter-spacing: -0.01em; }
+.fabrik .flow-sub { margin-top: -0.6cqh; font: 12px/1.2 var(--font-text), sans-serif; color: var(--muted); }
+.fabrik .flow-ticket { display: grid; padding: 6px 8px; font-size: 12px; color: var(--muted); background: #2a2a2a; transition: background-color 300ms, color 300ms; }
+.fabrik .flow-ticket.is-on { color: #161616; background: #f3f3f1; }
+.fabrik .flow-ticket--old { opacity: 0.6; }
+.fabrik .flow-agent { display: grid; grid-template-columns: 1.4em 1fr auto; padding: 4px 6px; color: var(--muted); transition: background-color 300ms, color 300ms; }
+.fabrik .flow-agent.is-on { color: var(--ink); background: #2a2a2a; }
+.fabrik .flow-agent.is-on .flow-glyph { color: var(--accent-hi); animation: fabrik-pulse 1s steps(2) infinite; }
+.fabrik .flow-state { font-size: 11.5px; }
+.fabrik .flow-file { padding: 4px 6px; font-size: 12px; color: var(--muted); word-break: break-all; transition: background-color 300ms, color 300ms; }
+.fabrik .flow-file.is-on { color: #fff; background: var(--accent); }
+.fabrik .flow-token {
+  position: absolute; top: 0; left: 0; z-index: 3; padding: 3px 8px; font-size: 12px; font-weight: 600; color: #fff; background: var(--accent);
+  transform: translate(calc(var(--x) * 1cqw - 50%), calc(var(--y) * 1cqh - 50%));
+}
+.fabrik .flow-token.is-moving { transition: transform 900ms cubic-bezier(0.6, 0, 0.2, 1); }
+.fabrik .flow-caption { position: absolute; bottom: 3.5%; left: 50%; color: var(--ink); white-space: nowrap; transform: translateX(-50%); animation: fabrik-line-in 400ms var(--ease) both; }
+.fabrik .flow-steps { display: flex; flex-direction: column; background: #161616; }
+.fabrik .flow-steps ol { display: grid; list-style: none; }
+.fabrik .flow-steps ol button {
+  display: grid; grid-template-columns: 2em minmax(0, 1fr); column-gap: 8px; width: 100%;
+  padding: 14px 20px; color: var(--muted); text-align: left; cursor: pointer; background: none; border: 0; transition: background-color 200ms, color 200ms;
+}
+.fabrik .flow-steps ol button:hover { color: var(--ink); background: #1f1f1f; }
+.fabrik .flow-num { grid-row: 1 / span 2; font-size: var(--step-lead); font-weight: 600; line-height: 1.15; color: var(--accent-hi); }
+.fabrik .flow-step-title { font-size: var(--step-lead); font-weight: 500; line-height: 1.15; color: #d8d8d8; letter-spacing: -0.02em; }
+.fabrik .flow-step-text { margin-top: 4px; font-size: var(--step-small); }
+/* Title, number and text fade with the background, so a step never shows text the colour of its ground. */
+.fabrik .flow-num,
+.fabrik .flow-step-title,
+.fabrik .flow-step-text { transition: color 200ms; }
+.fabrik .flow-steps ol button[aria-current] { color: #2b2b2b; background: var(--field); }
+.fabrik .flow-steps ol button[aria-current] .flow-step-title { color: var(--field-ink); }
+.fabrik .flow-steps ol button[aria-current] .flow-num { color: var(--accent); }
+.fabrik .flow-visual { position: relative; min-width: 0; }
+.fabrik .flow-play {
+  position: absolute; right: 0; bottom: 0; z-index: 4; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; color: var(--ink); cursor: pointer;
+  background: #262626; border: 0; transition: background-color 150ms;
+}
+.fabrik .flow-play:hover { background: var(--accent); }
+.fabrik .flow-play svg { width: 14px; height: 14px; fill: currentColor; }
+/* ---------- install ---------- */
+.fabrik .install { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px 64px; align-items: start; padding: var(--gap-section) var(--margin) 0; }
+.fabrik .install-head h2 { font-size: var(--step-head); }
+.fabrik .install-head p { margin-top: 20px; }
+.fabrik .install-steps { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; padding-left: 1.4em; }
+.fabrik .install-steps > li,
+.fabrik .install-head { min-width: 0; }
+.fabrik .install-steps li::marker { font-size: var(--step-lead); font-weight: 600; color: var(--accent-hi); }
+.fabrik .install-steps h3 { margin-bottom: 14px; font-size: var(--step-lead); }
+.fabrik .install-steps p { margin-bottom: 14px; }
+.fabrik .copy { display: flex; gap: 12px; align-items: center; justify-content: space-between; min-width: 0; padding: 12px 12px 12px 16px; font: 13.5px/1.4 var(--font-ui), monospace; background: var(--ui-bg); }
+.fabrik .copy code { overflow-x: auto; white-space: nowrap; }
+.fabrik .copy button { flex: none; padding: 8px 12px; cursor: pointer; background: #262626; border: 0; transition: background-color 120ms; }
+.fabrik .copy button:hover { color: #fff; background: var(--accent); }
+.fabrik .install-term { padding: 16px 18px; overflow-x: auto; font-size: 13.5px; line-height: 1.6; color: var(--ink); background: var(--ui-bg); }
+/* ---------- footer: the page slides off it ---------- */
+.fabrik .page { position: relative; z-index: 1; padding-bottom: var(--gap-section); background: var(--bg); }
+.fabrik .footer { position: sticky; bottom: 0; z-index: 0; padding: clamp(48px, 7vw, 96px) var(--margin) 28px; font-size: var(--step-small); color: var(--muted); background: #000; }
+.fabrik .footer-mark { display: block; width: 100%; height: auto; fill: #fff; }
+.fabrik .footer-mark rect { transition: fill 400ms var(--ease); }
+.fabrik .footer-mark rect.is-red { fill: var(--accent-hi); }
+.fabrik .footer-line { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px 24px; align-items: center; margin-top: clamp(28px, 4vw, 56px); }
+.fabrik .footer-year { text-align: center; }
+.fabrik .footer-marks { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: flex-end; }
+.fabrik .footer-powered { display: inline-flex; gap: 8px; align-items: center; color: var(--ink); text-decoration: none; }
+.fabrik .footer-skape { width: auto; height: 18px; }
+.fabrik .footer-powered:hover { color: var(--accent-hi); }
+.fabrik .footer-eu { display: inline-flex; gap: 8px; align-items: center; }
+.fabrik .footer-flag { width: 21px; height: 14px; }
+.fabrik .footer-credits { padding: 16px 20px; margin-top: 24px; font-size: 13px; line-height: 1.6; background: var(--ui-bg); opacity: 0.5; }
+.fabrik .footer-credits a { color: var(--ink); }
+/* ---------- motion ---------- */
+.fabrik .px { opacity: 0; animation: fabrik-px-in 1ms steps(1) both; animation-delay: calc(var(--d) * 45ms + 150ms); }
+@keyframes fabrik-px-in { to { opacity: 1; } }
+@keyframes fabrik-pulse { 50% { opacity: 0.35; } }
+@keyframes fabrik-line-in { from { opacity: 0; transform: translate(-50%, 6px); } }
+@keyframes fabrik-rise { from { opacity: 0; transform: translateY(24px); } }
+.fabrik .hero-copy > * { animation: fabrik-rise 700ms var(--ease) both; }
+.fabrik .hero-copy > :nth-child(2) { animation-delay: 80ms; }
+.fabrik .hero-copy > :nth-child(3) { animation-delay: 160ms; }
+.fabrik .part { animation: fabrik-rise 700ms var(--ease) both; }
+.fabrik .part--herdr { animation-delay: 240ms; }
+.fabrik .part--plane { animation-delay: 320ms; }
+.fabrik .part--obsidian { animation-delay: 400ms; }
+.fabrik.js-reveal [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 600ms var(--ease), transform 600ms var(--ease); }
+.fabrik.js-reveal [data-reveal].is-in { opacity: 1; transform: none; }
+.fabrik.js-reveal .install-steps li:nth-child(2) { transition-delay: 80ms; }
+.fabrik.js-reveal .install-steps li:nth-child(3) { transition-delay: 160ms; }
+@media (prefers-reduced-motion: reduce) {
+.fabrik *,
+.fabrik *::before,
+.fabrik *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+.fabrik .px { opacity: 1; }
+}
+/* ---------- smaller screens ---------- */
+@media (width < 1100px) {
+.fabrik .part--herdr { grid-column: 1 / -1; min-height: 0; }
+.fabrik .part--plane { grid-column: 1 / span 6; }
+.fabrik .part--obsidian { grid-column: 7 / span 6; }
+.fabrik .flow { grid-template-columns: minmax(0, 1fr); }
+.fabrik .install { grid-template-columns: minmax(0, 1fr); }
+}
+@media (width < 700px) {
+.fabrik .part--plane,
+.fabrik .part--obsidian { grid-column: 1 / -1; }
+.fabrik .part { min-height: 0; }
+.fabrik .story-row { display: grid; grid-template-columns: 1fr 1fr; }
+.fabrik .story-row figure { aspect-ratio: 4 / 3; }
+.fabrik .story-text { margin-top: -40px; }
+/* The diagram becomes a stacked list of the three tools; the steps still drive it. */
+.fabrik .flow-stage { display: grid; gap: 10px; aspect-ratio: auto; padding: 12px; container-type: normal; }
+.fabrik .flow-lines,
+.fabrik .flow-token { display: none; }
+.fabrik .flow-you,
+.fabrik .flow-node,
+.fabrik .flow-caption { position: static; width: auto; height: auto; transform: none; }
+.fabrik .flow-you { justify-self: start; }
+.fabrik .flow-node { gap: 8px; padding: 12px; }
+.fabrik .flow-caption { order: 10; white-space: normal; animation: none; }
+.fabrik .flow-sub { margin-top: -4px; }
+.fabrik .flow-steps ol button { padding: 12px 16px; }
+.fabrik .flow-stage { padding-bottom: 56px; }
+.fabrik .footer-line { grid-template-columns: 1fr; gap: 8px; }
+.fabrik .footer-year { text-align: left; }
+.fabrik .top-nav { gap: 14px; }
+.fabrik .footer-marks { justify-content: flex-start; }
+}
+
+/* skape.io's body uses overflow-x: hidden, which turns body into a scroll container and breaks the
+   sticky footer reveal. clip hides overflow the same way without creating a scroll container. */
+body:has(.fabrik) {
+  overflow-x: clip;
+}
+
+.fabrik {
+  min-height: 100vh;
+}
+
+/* skape.io resets link decoration; inline links in fabrik's running text keep an underline. */
+.fabrik .how-more a,
+.fabrik .install-head a,
+.fabrik .footer-credits a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
