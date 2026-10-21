@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import { jord } from '@/app/i18n';
 import Button from '@/components/Button';
 import Container from '@/components/Container';
+import { JordLogo } from '@/components/JordLogo';
 import PlanetCanvas from '@/components/PlanetCanvas';
 import Section from '@/components/Section';
 
@@ -19,7 +20,8 @@ const JordBanner = (): ReactNode => (
     )}
   >
     <Container gap={6}>
-      <h2 className={styles.JordBanner__Title}>{jord.title}</h2>
+      {/* <h2 className={styles.JordBanner__Title}>{jord.title}</h2> */}
+      <JordLogo />
       {jord.text.map((paragraph) => (
         <p key={paragraph} className={styles.JordBanner__Text}>{paragraph}</p>
       ))}
