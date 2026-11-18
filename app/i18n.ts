@@ -64,7 +64,7 @@ export const jord = {
   ],
   cta: {
     label: 'Explore JORD',
-    href: null,
+    href: 'https://jord.ws',
     unavailableLabel: 'JORD website coming soon.',
   },
 } as const;

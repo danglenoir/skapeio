@@ -20,7 +20,6 @@ const JordBanner = (): ReactNode => (
     )}
   >
     <Container gap={6}>
-      {/* <h2 className={styles.JordBanner__Title}>{jord.title}</h2> */}
       <JordLogo />
       {jord.text.map((paragraph) => (
         <p key={paragraph} className={styles.JordBanner__Text}>{paragraph}</p>
@@ -28,7 +27,6 @@ const JordBanner = (): ReactNode => (
       <Button
         label={jord.cta.label}
         href={jord.cta.href ?? undefined}
-        unavailableLabel={jord.cta.unavailableLabel}
       />
     </Container>
   </Section>
